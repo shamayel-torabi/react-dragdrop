@@ -1,9 +1,9 @@
 import { createContext } from "react"
-import type { UserType } from "./user"
+import type { Role, UserType } from "./UserType"
 
 export type UserContexType = {
     users: UserType[],
-    setRole: (userId: string, role: string) => void;
+    setRole: (userId: string, role: Role ) => void;
 }
 
 export const UserContex = createContext<UserContexType>({

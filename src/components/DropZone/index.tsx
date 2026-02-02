@@ -1,34 +1,57 @@
 import { type DragEvent, use, useMemo, useState } from 'react';
-import { UserContex } from '../../context/UserContex';
 import clsx from 'clsx';
+import { User } from '../User';
+import { UserContex } from '../../context/UserContex';
+import type { Role } from '../../context/UserType';
+
 import styles from './index.module.css';
-import { User } from '../UserList/User';
 
-export const DropZone = () => {
-  const [active, setActive] = useState(false);
-  const { users, setRole } = use(UserContex)
+type Props = {
+  role: Role
+}
 
-  const handleDrop = (e: DragEvent<HTMLUListElement>) => {
+export const DropZone = ({ role }: Props) => {
+  const { users, setRole } = use(UserContex);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handleDrop = (e: DragEvent<HTMLDivElement>) => {
     const id = e.dataTransfer.getData('id');
-    setRole(id, "ad");
+    setRole(id, role);
+    setIsDragging(false);
   }
 
-  const handleDrogOver = (e: DragEvent<HTMLUListElement>) => {
-    //console.log(e);
+  const handleDrogOver = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    setActive(true);
+    e.stopPropagation();
+    setIsDragging(true);
   }
 
-  const filteredUser = useMemo(()=>{
-    return users.filter(user => user.role !== undefined)
-  },[users])
+  const handleDragEnter = (e: DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(true);
+  }
+
+  const handleDragLeave = (e: DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  }
+
+  const filteredUser = useMemo(() => {
+    return users.filter(user => user.role === role);
+  }, [users, role])
 
   return (
-    <ul
+    <div className={styles['drop-zone']}
       onDrop={handleDrop}
-      onDragOver={handleDrogOver}
-      className={clsx(styles['drop-zone'], active ? styles.active : undefined)}>
-      {filteredUser.map(user => <User key={user.id} user={user} />)}
-    </ul>
+      onDragEnter={handleDragEnter}
+      onDragLeave={handleDragLeave}
+      onDragOver={handleDrogOver}>
+      <p className={clsx(styles.title, isDragging ? styles.active : undefined)}>{role}</p>
+      <ul>
+        {filteredUser.map(user => <User key={user.id} user={user} />)}
+      </ul>
+    </div>
   )
 }

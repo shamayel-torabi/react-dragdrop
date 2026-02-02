@@ -1,8 +1,0 @@
-.user-list {
-  display: flex;
-  flex-direction: column;
-  inline-size: 16rem;
-  list-style: none;
-  background-color: darkgrey;
-  padding: 0.5rem;
-}

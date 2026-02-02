@@ -1,4 +1,4 @@
-import type { UserType } from "./user";
+import type { Role, UserType } from "./UserType";
 
 export type UserState = {
   users: UserType[];
@@ -6,7 +6,7 @@ export type UserState = {
 
 export type Action = {
   type: string;
-  payload: { userId: string; role: string };
+  payload: { userId: string; role: Role };
 };
 
 export const userReducer = (state: UserState, action: Action): UserState => {

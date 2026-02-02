@@ -1,11 +1,22 @@
 .drop-zone {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
-  inline-size: 100%;
-  list-style: none;
+  inline-size: 24rem;
+  background-color: darkgrey;
 
-  .active {
-    border: solid 2px #ffaadd;
+  .title {
+    font-weight: 600;
+    text-align: center;
+    background-color:grey;
+    padding: 0.5rem;    
   }
+  .active {
+    background-color:red;
+  }
+
+  > ul {
+    list-style: none;
+    padding: 0.5rem;
+  }
+
 }

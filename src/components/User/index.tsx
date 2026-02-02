@@ -1,5 +1,5 @@
-import type { UserType } from '../../context/user'
-import styles from './User.module.css';
+import type { UserType } from '../../context/UserType'
+import styles from './index.module.css';
 
 type UserProps = {
     user: UserType
