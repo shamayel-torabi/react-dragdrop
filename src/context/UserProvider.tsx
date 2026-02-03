@@ -7,12 +7,12 @@ const initialState: UserState = {
     users: [
         {
             id: "1",
-            name: "Shamayel",
+            name: "شمایل",
             role: "Users"
         },
         {
             id: "2",
-            name: "Sakineh",
+            name: "سکینه",
             role: "Users"
         }
     ]

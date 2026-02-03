@@ -3,10 +3,15 @@ import styles from './Home.module.css';
 
 const Home = () => {
   return (
-    <div className={styles.home}>
-      <DropZone role='Users' />
-      <DropZone role='Admin' />
-    </div>
+    <main className={styles.home}>
+      {/* <header>
+        <p>Header</p>
+      </header> */}
+      <section>
+        <DropZone role='Users' />
+        <DropZone role='Admin' />
+      </section>
+    </main>
   );
 }
 

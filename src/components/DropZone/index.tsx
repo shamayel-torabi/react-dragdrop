@@ -26,12 +26,6 @@ export const DropZone = ({ role }: Props) => {
     setIsDragging(true);
   }
 
-  const handleDragEnter = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragging(true);
-  }
-
   const handleDragLeave = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -45,7 +39,6 @@ export const DropZone = ({ role }: Props) => {
   return (
     <div className={styles['drop-zone']}
       onDrop={handleDrop}
-      onDragEnter={handleDragEnter}
       onDragLeave={handleDragLeave}
       onDragOver={handleDrogOver}>
       <p className={clsx(styles.title, isDragging ? styles.active : undefined)}>{role}</p>
