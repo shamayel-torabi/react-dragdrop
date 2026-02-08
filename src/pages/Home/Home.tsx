@@ -24,8 +24,23 @@ const Home = () => {
         {roles.map(role =><DropZone role={role}/>)}
       </section>  */}
       <button onClick={handlBtnClick}>Show</button>
-      <Modal ref={ref} heading='Title'>
-        <p>Test</p>
+      <Modal ref={ref} heading='عنوان'>
+        <p>متن داخل دیالوگ</p>
+        <form>
+          <div>
+            <label>
+              <span>نام</span>
+              <input />
+            </label>
+          </div>
+          <div>
+            <label>
+              <span>نام خانوادگی</span>
+              <input />
+            </label>
+          </div>
+          <button type='submit'>ارسال</button>
+        </form>
       </Modal>
     </div>
   );

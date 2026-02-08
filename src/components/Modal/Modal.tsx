@@ -1,6 +1,7 @@
 import { type ComponentProps, type ReactNode, type RefObject, type MouseEvent } from 'react';
 import clsx from 'clsx';
 import styles from './Modal.module.css';
+import { IconButton } from '../IconButton';
 
 type Props = ComponentProps<'dialog'> & {
   ref: RefObject<HTMLDialogElement | null>
@@ -38,7 +39,7 @@ export const Modal = ({
       <header>
         <div className={styles.heading}>{heading}</div>
         <div className={styles.actions}>
-          <button onClick={handleCloseButton}>X</button>
+          <IconButton onClick={handleCloseButton}>X</IconButton>
         </div>
       </header>
       <main>

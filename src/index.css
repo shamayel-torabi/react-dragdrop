@@ -5,15 +5,30 @@
   --font-style: normal;
   --line-height: 1.5;
 
-  --color: rgba(255, 255, 255, 0.87);
+  --color-gray-50: hsl(210, 20%, 98%);
+  --color-gray-100: hsl(220, 14%, 96%);
+  --color-gray-200: hsl(220, 13%, 91%);
+  --color-gray-300: hsl(216, 12%, 84%);
+  --color-gray-400: hsl(218, 11%, 65%);
+  --color-gray-500: hsl(240, 4%, 46%);
+  --color-gray-600: hsl(240, 5%, 34%);
+  --color-gray-700: hsl(240, 5%, 26%);
+  --color-gray-800: hsl(215, 28%, 17%);
+  --color-gray-900: hsl(221, 39%, 11%);
+  --color-gray-950: hsl(224, 71%, 4%);
+  --color: var(var(--color-gray-100));
+  --color-border: var(--color-gray-300);
+  --color-backdrop: hsla(0, 0%, 0%, 0.089);
+
   --background-color: #242424;
-  --border-radius: 0.5rem 0.5rem;
-  --color-backdrop: hsl(0, 0%, 0%, 60%);
+  --border-radius-1: 0.25rem 0.25rem;
+  --border-radius-2: 0.5rem 0.5rem;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 *,
