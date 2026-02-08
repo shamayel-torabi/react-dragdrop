@@ -7,6 +7,8 @@
 
   --color: rgba(255, 255, 255, 0.87);
   --background-color: #242424;
+  --border-radius: 0.5rem 0.5rem;
+  --color-backdrop: hsl(0, 0%, 0%, 60%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

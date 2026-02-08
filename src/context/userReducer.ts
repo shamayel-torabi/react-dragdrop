@@ -1,25 +1,39 @@
-import type { Role, UserType } from "./UserType";
+import type { RoleId, UserType } from "./type";
 
 export type UserState = {
   users: UserType[];
 };
 
-export type Action = {
-  type: string;
-  payload: { userId: string; role: Role };
+type AddUserType = {
+  type: "ADD_USER";
+  payload: UserType;
 };
 
-export const userReducer = (state: UserState, action: Action): UserState => {
+type SetRoleType = {
+  type: "SET_ROLE";
+  payload: { userId: string; roleId: RoleId };
+};
+
+type ActionType = AddUserType | SetRoleType;
+
+export const userReducer = (state: UserState, action: ActionType): UserState => {
   switch (action.type) {
-    case "setRole": {
-      const { userId, role } = action.payload;
+    case "ADD_USER": {
+      const user: UserType = action.payload;
+      const updateUsers = [...state.users];
+      updateUsers.push(user);
+      return { users: updateUsers };
+    }
+    case "SET_ROLE": {
+      const { userId, roleId } = action.payload;
       const updateUsers = [...state.users];
 
       const userIndex = updateUsers.findIndex((u) => u.id === userId);
-      updateUsers[userIndex].role = role;
+      updateUsers[userIndex].roleId = roleId;
 
       return { users: updateUsers };
     }
+
     default:
       return state;
   }

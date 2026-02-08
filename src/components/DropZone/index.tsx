@@ -2,7 +2,7 @@ import { type DragEvent, use, useMemo, useState } from 'react';
 import clsx from 'clsx';
 import { User } from '../User';
 import { UserContex } from '../../context/UserContex';
-import type { Role } from '../../context/UserType';
+import type { Role } from '../../context/type';
 
 import styles from './index.module.css';
 
@@ -16,7 +16,7 @@ export const DropZone = ({ role }: Props) => {
 
   const handleDrop = (e: DragEvent<HTMLDivElement>) => {
     const id = e.dataTransfer.getData('id');
-    setRole(id, role);
+    setRole(id, role.id);
     setIsDragging(false);
   }
 
@@ -33,7 +33,7 @@ export const DropZone = ({ role }: Props) => {
   }
 
   const filteredUser = useMemo(() => {
-    return users.filter(user => user.role === role);
+    return users.filter(user => user.roleId === role.id);
   }, [users, role])
 
   return (
@@ -41,7 +41,7 @@ export const DropZone = ({ role }: Props) => {
       onDrop={handleDrop}
       onDragLeave={handleDragLeave}
       onDragOver={handleDrogOver}>
-      <p className={clsx(styles.title, isDragging ? styles.active : undefined)}>{role}</p>
+      <p className={clsx(styles.title, isDragging ? styles.active : undefined)}>{role.name}</p>
       <ul>
         {filteredUser.map(user => <User key={user.id} user={user} />)}
       </ul>
