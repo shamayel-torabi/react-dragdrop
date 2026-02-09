@@ -3,6 +3,7 @@
   margin: auto;
   border: none;
   border-radius: var(--border-radius-2);
+  background-color: var(--);
 
   &::backdrop {
     background-color: var(--color-backdrop);

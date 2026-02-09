@@ -2,6 +2,7 @@ import { type ComponentProps, type ReactNode, type RefObject, type MouseEvent } 
 import clsx from 'clsx';
 import styles from './Modal.module.css';
 import { IconButton } from '../IconButton';
+import { CloseFill, CloseMediumLine } from '@mingcute/react';
 
 type Props = ComponentProps<'dialog'> & {
   ref: RefObject<HTMLDialogElement | null>
@@ -39,7 +40,9 @@ export const Modal = ({
       <header>
         <div className={styles.heading}>{heading}</div>
         <div className={styles.actions}>
-          <IconButton onClick={handleCloseButton}>X</IconButton>
+          <IconButton onClick={handleCloseButton}>
+            <CloseMediumLine/>
+          </IconButton>
         </div>
       </header>
       <main>

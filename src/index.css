@@ -16,7 +16,7 @@
   --color-gray-800: hsl(215, 28%, 17%);
   --color-gray-900: hsl(221, 39%, 11%);
   --color-gray-950: hsl(224, 71%, 4%);
-  --color: var(var(--color-gray-100));
+  --color: var(--color-gray-900);
   --color-border: var(--color-gray-300);
   --color-backdrop: hsla(0, 0%, 0%, 0.089);
 

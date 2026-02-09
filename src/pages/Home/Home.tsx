@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import { Modal } from '../../components/Modal';
 
 import styles from './Home.module.css';
+import { IconButton } from '../../components/IconButton';
 // const roles: Role[] = [
 //   { id: "USERS", name: "کاربران" },
 //   { id: "ADMINS", name: "مدیران" },
@@ -23,7 +24,7 @@ const Home = () => {
       {/* <section>
         {roles.map(role =><DropZone role={role}/>)}
       </section>  */}
-      <button onClick={handlBtnClick}>Show</button>
+      <IconButton style={{color: "#FFFFFF"}} onClick={handlBtnClick}>Show</IconButton>
       <Modal ref={ref} heading='عنوان'>
         <p>متن داخل دیالوگ</p>
         <form>
@@ -39,7 +40,7 @@ const Home = () => {
               <input />
             </label>
           </div>
-          <button type='submit'>ارسال</button>
+          <IconButton type='submit'>ارسال</IconButton>
         </form>
       </Modal>
     </div>
